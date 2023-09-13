@@ -283,7 +283,7 @@ public class FusedLocationMethodHandler implements MethodChannel.MethodCallHandl
         intent.setAction(Action.PROCESS_LOCATION);
 
         final PendingIntent pendingIntent = PendingIntent.getBroadcast(activity.getApplicationContext(), ++requestCode,
-            intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
         requests.put(requestCode, pendingIntent);
         return Pair.create(requestCode, pendingIntent);
     }
