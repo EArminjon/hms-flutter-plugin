@@ -94,7 +94,7 @@ public class GeofenceMethodHandler implements MethodCallHandler {
         intent.setAction(Action.PROCESS_GEOFENCE);
 
         final PendingIntent pendingIntent = PendingIntent.getBroadcast(activity.getApplicationContext(), ++requestCode,
-            intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
         requests.put(requestCode, pendingIntent);
         return Pair.create(requestCode, pendingIntent);
     }
